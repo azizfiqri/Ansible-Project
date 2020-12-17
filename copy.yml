@@ -4,5 +4,7 @@
   tasks:
     - name: Copy file dari repo ke PCCS
       copy:
+        remote_src: yes
         src: /home/config.cnf
         dest: /home/
+        
