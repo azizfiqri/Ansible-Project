@@ -5,5 +5,5 @@
     - name: Copy file dari repo ke PCCS
       copy:
         src: home/config.cnf
-        dst: home/
+        dest: home/
         remote_src: yes
