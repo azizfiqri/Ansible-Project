@@ -1,0 +1,16 @@
+---
+- hosts: cu-13
+  become: yes
+  tasks:
+  # - name: install vsftpd
+  #   apt:
+  #     name: vsftpd
+  #     state: present
+  - name: download file Konfig vsftpd
+    get_url:
+      url: https://iot-lab.tech/vsftpd.conf
+      dest: /etc/
+  - name: Services VSFTPD
+    systemd:
+     name: vsftpd
+     state: restarted
