@@ -1,7 +1,7 @@
 ---
-- hosts: workshop
-  become: yes
-  tasks:
+# - hosts: workshop
+#   become: yes
+#   tasks:
   # - name: install vsftpd
   #   apt:
   #     name: vsftpd
