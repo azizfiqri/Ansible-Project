@@ -1,0 +1,7 @@
+---
+- hosts: mtn
+  tasks:
+    - name: Copy file dari repo ke PCCS
+      ansible.posix.synchronize:
+        src: home/config.cnf
+        dst: rsync://root@172.9.2.4/home/

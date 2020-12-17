@@ -1,0 +1,26 @@
+---
+- hosts: pcs-test
+  tasks:
+#####################-FIREWALL-#####################
+    - name: Disable SELinux
+      selinux:
+         state: disabled
+    - name: stop service firewalld
+      service:
+          name: firewalld
+          state: stopped
+    - name: disable service startup firewalld
+      service:
+          name: firewalld
+          enabled: no
+    - name: reboot
+      command: reboot
+    # - name: Allow Port HTTP 80
+    #   firewalld:
+    #         state: "{{ item.state }}"
+    #         port: "{{ item.port }}"
+    #         permanent: yes
+    #         state: enabled
+    #    with_items:
+    #         { state: 'enabled', port: '80/tcp' }
+    #         { state: 'enabled', port: '3306/tcp' }
