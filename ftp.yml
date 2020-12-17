@@ -1,5 +1,5 @@
 ---
-- hosts: cu-13
+- hosts: workshop
   become: yes
   tasks:
   # - name: install vsftpd
