@@ -2,9 +2,11 @@
 - hosts: mtn
   become: yes
   tasks:
-    - name: Copy file dari repo ke PCCS
-      copy:
-        remote_src: yes
-        src: /home/config.cnf
-        dest: /home/
+    # - name: Copy file dari repo ke PCCS
+    #   copy:
+    #     remote_src: yes
+    #     src: /home/config.cnf
+    #     dest: /home/
+    - name: copy file
+      command: scp root@172.9.4.6:/home/config.cnf /home/
         
