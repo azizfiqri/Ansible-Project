@@ -7,6 +7,16 @@
     #     remote_src: yes
     #     src: /home/config.cnf
     #     dest: /home/
-    - name: copy file
-      command: scp root@172.9.4.6:/home/config.cnf /home/
+    - name: copy 172.9.10.4
+      command: scp /home/config.cnf root@172.9.10.4:/home/
+    - name: copy 172.9.2.4
+      command: scp /home/config.cnf root@172.9.2.4:/home/
+    - name: copy 172.9.3.4
+      command: scp /home/config.cnf root@172.9.3.4:/home/
+    - name: copy 172.9.6.4
+      command: scp /home/config.cnf root@172.9.6.4:/home/
+    - name: copy 172.9.7.4
+      command: scp /home/config.cnf root@172.9.7.4:/home/
+    - name: copy 172.9.9.4
+      command: scp /home/config.cnf root@172.9.9.4:/home/
         
