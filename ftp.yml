@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: iot
 #   become: yes
   tasks:
   # - name: install vsftpd
