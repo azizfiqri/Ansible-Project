@@ -1,0 +1,69 @@
+---
+- hosts: slff
+  become: yes
+  tasks:
+  - name: Membuat Folder Promtail
+    file:
+      path: /usr/local/bin/promtail
+      state: directory
+      mode: '0755'
+  - name: Membuat Folder Loki
+    file:
+      path: /usr/local/bin/loki
+      state: directory
+      mode: '0755'
+  - name: download file dependecies Loki
+    get_url:
+      url: https://github.com/grafana/loki/releases/download/v2.0.0/loki-linux-arm64.zip
+      dest: /usr/local/bin/loki/
+  - name: download file Config Loki
+    get_url:
+      url: https://iot-lab.tech/loki/arm/config-loki.yml
+      dest: /usr/local/bin/loki/
+  - name: download file dependecies Promtail
+    get_url:
+      url: https://github.com/grafana/loki/releases/download/v2.0.0/promtail-linux-arm64.zip
+      dest: /usr/local/bin/promtail/
+  - name: download file Config Promtail
+    get_url:
+      url: https://iot-lab.tech/promtail/arm/config-promtail.yml
+      dest: /usr/local/bin/promtail/
+  - name: unzip loki
+    unarchive:
+      remote_src: yes
+      src: /usr/local/bin/loki/loki-linux-arm64.zip
+      dest: /usr/local/bin/loki/
+  - name: unzip Promtail
+    unarchive:
+      remote_src: yes
+      src: /usr/local/bin/promtail/promtail-linux-arm64.zip
+      dest: /usr/local/bin/promtail
+  - name: download file Service Loki dan Promtail
+    get_url:
+      url: https://iot-lab.tech/loki.service
+      dest: /etc/systemd/system/
+  - name: download file Service Loki dan Promtail
+    get_url:
+      url: https://iot-lab.tech/promtail.service
+      dest: /etc/systemd/system/
+  - name: Daemon Reload Service
+    systemd:
+      daemon_reload: yes
+    notify:
+      - restart service promtail
+      - restart service loki
+  - name: Services Loki
+    systemd:
+     name: loki
+     state: started
+     enabled: yes
+  - name: Services Promtail
+    systemd:
+     name: promtail
+     state: started
+     enabled: yes
+  handlers:
+  - name: restart service promtail
+    service: name=promtail enabled=yes
+  - name: restart service loki
+    service: name=loki enabled=yes

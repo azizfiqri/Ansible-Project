@@ -1,16 +1,16 @@
 ---
-- hosts: iot
-#   become: yes
+- hosts: slff
+  become: yes
   tasks:
-  # - name: install vsftpd
-  #   apt:
-  #     name: vsftpd
-  #     state: present
+  - name: install vsftpd
+    apt:
+      name: vsftpd
+      state: present
   - name: download file Konfig vsftpd
     get_url:
       url: https://iot-lab.tech/vsftpd.conf
       dest: /usr/local/bin/
-  # - name: Services VSFTPD
-  #   systemd:
-  #    name: vsftpd
-  #    state: restarted
+  - name: Services VSFTPD
+    systemd:
+     name: vsftpd
+     state: restarted
