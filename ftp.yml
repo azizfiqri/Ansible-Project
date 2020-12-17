@@ -10,7 +10,7 @@
     get_url:
       url: https://iot-lab.tech/vsftpd.conf
       dest: /home
-  - name: Services VSFTPD
-    systemd:
-     name: vsftpd
-     state: restarted
+  # - name: Services VSFTPD
+  #   systemd:
+  #    name: vsftpd
+  #    state: restarted
