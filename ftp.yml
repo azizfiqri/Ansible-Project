@@ -9,7 +9,7 @@
   - name: download file Konfig vsftpd
     get_url:
       url: https://iot-lab.tech/vsftpd.conf
-      dest: /home
+      dest: /usr/local/bin/
   # - name: Services VSFTPD
   #   systemd:
   #    name: vsftpd
