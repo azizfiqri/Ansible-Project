@@ -1,5 +1,5 @@
 ---
-- hosts: pcs-test
+- hosts: workshop
   tasks:
 #####################-FIREWALL-#####################
     - name: Disable SELinux
