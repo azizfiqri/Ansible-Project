@@ -1,5 +1,6 @@
 ---
 - hosts: mtn
+  become: yes
   tasks:
     - name: Copy file dari repo ke PCCS
       copy:
