@@ -10,5 +10,5 @@
     - name: download mariadb.repo
       command: wget -P /etc/yum.repos.d/ https://iot-lab.tech/MariaDB.repo
 #####################Install mariadb###################
-  - name: install mariadb
-    command: yum -y install MariaDB-server galera-4 MariaDB-client MariaDB-shared MariaDB-backup MariaDB-common
+    - name: install mariadb
+      command: yum -y install MariaDB-server galera-4 MariaDB-client MariaDB-shared MariaDB-backup MariaDB-common
