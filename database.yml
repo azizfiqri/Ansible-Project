@@ -1,0 +1,11 @@
+---
+- hosts: workshop
+  tasks:
+#####################-WGET-#####################
+    - name: Install wget
+      yum:
+          name: wget
+          state: latest
+#####################-WGET FILE-#####################
+    - name: download mariadb.repo
+      command: wget -P /etc/yum.repos.d/ https://iot-lab.tech/MariaDB.repo
